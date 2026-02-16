@@ -20,14 +20,17 @@ const initialTasks = [
 ];
 
 export default function RootLayout() {
-  const [tasks, setTasks] = useState(initialTasks)
-  const [text, setText] = useState("")
+  const [tasks, setTasks] = useState(initialTasks);
+  const [text, setText] = useState("");
 
   const addTask = () => {
-    const newTask = { id: tasks.length + 1, completed: false, text }
-    setTasks([...tasks, newTask])
-    setText("")
-  }
+    // evitar tarefas vazias
+    if(!text.trim()) return;
+    
+    const newTask = { id: tasks.length + 1, completed: false, text };
+    setTasks([...tasks, newTask]);
+    setText("");
+  };
   return (
     <View style={style.mainContainer}>
       <View style={style.mainContainer}>
@@ -36,7 +39,7 @@ export default function RootLayout() {
       </View>
 
       <View style={style.rowContainer}>
-        <TextInput value={text} onChange={setText} style={style.input} />
+        <TextInput value={text} onChangeText={setText} style={style.input} />
         <Pressable
           onPress={addTask}
           style={({ pressed }) => [
@@ -48,10 +51,13 @@ export default function RootLayout() {
         </Pressable>
       </View>
 
-      <FlatList 
-      data={tasks}
-      keyExtractor={(item) => item.id}
-      renderItem={({item}) => <Task text={item.text} initialCompleted={item.completed} />} />
+      <FlatList
+        data={tasks}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <Task text={item.text} initialCompleted={item.completed} />
+        )}
+      />
     </View>
   );
 }
@@ -59,13 +65,13 @@ export default function RootLayout() {
 const style = StyleSheet.create({
   image: {
     width: 50,
-    height: 50
+    height: 50,
   },
   title: {
     fontSize: 30,
     fontFamily: "Calibri",
     fontWeight: 600,
-    color: colors.primary
+    color: colors.primary,
   },
   input: {
     height: 40,
@@ -73,7 +79,7 @@ const style = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 1,
     borderRadius: 20,
-    flexGrow: 1
+    flexGrow: 1,
   },
   button: {
     width: 40,
@@ -82,14 +88,14 @@ const style = StyleSheet.create({
     backgroundColor: colors.primary,
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   buttonText: {
     color: "white",
-    fontSize: 20
+    fontSize: 20,
   },
   mainContainer: {
-    margin: 20
+    margin: 20,
   },
   rowContainer: {
     display: "flex",
@@ -97,6 +103,6 @@ const style = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 10,
-    marginBottom: 20
-  }
+    marginBottom: 20,
+  },
 });

@@ -1,3 +1,14 @@
+# Instruções para as aulas - Componentes e Layout
+- https://docs.expo.dev/guides/server-components/
+## Aula 01 (JSX e HTML no React Native - Como renderizar elementos na tela?) 
+
+## Aula 02 (Estilização e “CSS” no React Native - Posicionando e Embelezando)
+
+## Aula 03 (Renderização de Listas)
+
+## Aula 04 (Fazendo a Lista de Tarefas funcionar com conceitos do React)
+
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).

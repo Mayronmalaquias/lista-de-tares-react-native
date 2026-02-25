@@ -1,5 +1,5 @@
 # Sessão 1: Mobile vs Web
-1. Apresentação do curso 
+1. Apresentação do curso (Mayron)
 2. O Que é desenvolvimento Nativo e Hibrido **Doc:** https://reactnative.dev/docs/intro-react-native-components
 3. Configuração do Ambiente de Desenvolvimento **Doc:** https://reactnative.dev/docs/environment-setup
 4. Estrutura de um projeto React Native
